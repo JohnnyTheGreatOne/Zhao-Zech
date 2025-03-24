@@ -35,3 +35,30 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+// Lightbox-Funktionalität für die Gallerie
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    document.body.appendChild(lightbox);
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            lightbox.classList.add('active');
+            const img = document.createElement('img');
+            img.src = this.src;
+            img.alt = this.alt;
+            
+            while (lightbox.firstChild) {
+                lightbox.removeChild(lightbox.firstChild);
+            }
+            
+            lightbox.appendChild(img);
+        });
+    });
+    
+    lightbox.addEventListener('click', function(e) {
+        if (e.target !== e.currentTarget) return;
+        lightbox.classList.remove('active');
+    });
+});
