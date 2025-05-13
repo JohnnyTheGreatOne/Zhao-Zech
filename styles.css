@@ -269,7 +269,7 @@ body {
 }
 /* ... (alles Original-CSS bis zum Ende) ... */
 
-/* NEUE KONZERTE-STILE (am Ende der Datei) */
+/* Konzerte-Stile */
 .concerts-list {
     display: flex;
     flex-direction: column;
@@ -299,8 +299,28 @@ body {
     margin: 5px 0;
 }
 
+.past-concerts-title {
+    margin-top: 40px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.concerts-list.past .concert-item {
+    background: #f0f0f0;
+    opacity: 0.8;
+}
+
+.concerts-list.past .concert-item:hover {
+    opacity: 1;
+}
+
 @media (max-width: 768px) {
     .concert-item {
         padding: 15px;
+    }
+    
+    .past-concerts-title {
+        margin-top: 30px;
     }
 }
