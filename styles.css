@@ -324,3 +324,48 @@ body {
         margin-top: 30px;
     }
 }
+/* Hamburger Menu Styles - nur für Mobile */
+.hamburger {
+    display: none; /* Standardmäßig versteckt */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Nur auf Mobilgeräten anzeigen */
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: rgba(51, 51, 51, 0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+    
+    nav ul.active {
+        left: 0;
+    }
+    
+    nav ul li {
+        margin: 15px 0;
+    }
+    
+    .social-icons {
+        margin-top: 20px;
+    }
+}
+
+/* ALLE BESTEHENDEN STILE UNVERÄNDERT */
