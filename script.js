@@ -138,3 +138,23 @@ function getDateFromItem(item) {
     }
     return new Date(0); // Falls kein Datum gefunden, sehr altes Datum zurückgeben
 }
+// Hamburger Menu Funktionalität
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navUl = document.querySelector('nav ul');
+    
+    if (hamburger && navUl) {
+        hamburger.addEventListener('click', function() {
+            navUl.classList.toggle('active');
+        });
+        
+        // Schließe das Menü, wenn auf einen Link geklickt wird
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                navUl.classList.remove('active');
+            });
+        });
+    }
+});
+
+// REST DES JAVASCRIPTS UNVERÄNDERT
