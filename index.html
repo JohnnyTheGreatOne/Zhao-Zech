@@ -1,266 +1,252 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="icon" href="JZ Logo mit Rahmen.png" type="image/png">
+    <link rel="icon" href="JZ Logo mit Rahmen.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="JZ Logo mit Rahmen.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhao & Zech - Klavierduo</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" href="Favicon.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome für Icons -->
+    <meta name="description" content="Offizielle Website von Johann Zhao, Pianist. Entdecken Sie Konzerte, Biografie, Mediathek und Kontaktinformationen.">
+    <title>Johann Zhao | Pianist</title>
+    <meta property="og:title" content="Johann Zhao | Pianist">
+    <meta property="og:description" content="Offizielle Website von Johann Zhao, Pianist. Entdecken Sie Konzerte, Biografie, Mediathek und Kontaktinformationen.">
+    <meta property="og:image" content="https://www.johannzhao.com/Johann%20Zhao%20Foto.JPG">
+    <meta property="og:url" content="https://www.johannzhao.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="1095">
+    <meta property="og:image:height" content="822">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://www.johannzhao.com/" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Johann Zhao | Pianist",
+      "url": "https://www.johannzhao.com/",
+      "description": "Offizielle Website von Johann Zhao, Pianist. Entdecken Sie Konzerte, Biografie, Mediathek und Kontaktinformationen."
+    }
+    </script>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="Zhao & Zech Logo.png" alt="Zhao & Zech Logo">
-            </div>
+        <div class="header-title">
+            <img src="JZ Logo ohne Rahmen.png" alt="Logo" class="header-logo">
+            <a href="#home" id="header-name">Johann Zhao</a>
+        </div>
+        <div class="mobile-header-controls">
+            <button id="translate-button">EN</button>
             <button class="hamburger" aria-label="Menü">
                 <i class="fas fa-bars"></i>
             </button>
+        </div>
+        <nav>
+            <div class="close-menu-container">
+                <button class="close-menu">&times;</button>
+            </div>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#repertoire">Repertoire</a></li>
-                <li><a href="#mediathek">Mediathek</a></li>
-                <li><a href="#konzerte">Konzerte</a></li>
-                <li><a href="#gallerie">Galerie</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#home" id="nav-home">Biografie</a></li>
+                <li><a href="#mediathek" id="nav-mediathek">Mediathek</a></li>
+                <li><a href="#gallerie" id="nav-gallerie">Galerie</a></li>
+                <li><a href="#news-presse" id="nav-news">News & Presse</a></li>
+                <li><a href="https://www.zhao-zech.com/" id="nav-zhao-zech" target="_blank">Zhao & Zech</a></li>
+                <li><a href="#kontakt" id="nav-kontakt">Kontakt</a></li>
             </ul>
-            <div class="social-icons">
-                <a href="https://www.youtube.com/@ZhaoZech" target="_blank" aria-label="YouTube">
+            <div class="mobile-social-icons">
+                <a href="https://www.youtube.com/@JohannZhao" target="_blank" aria-label="YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <a href="https://www.instagram.com/zhao_zech/" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/johann._.zhao" target="_blank" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
         </nav>
+        <div class="header-right">
+            <button id="translate-button-desktop">EN</button>
+            <div class="social-icons-small">
+                <a href="https://www.youtube.com/@JohannZhao" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/johann._.zhao" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- Rest des HTML bleibt unverändert -->
-</body>
-</html>
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Zhao & Zech</h1>
-            <div class="text-box">
-                <p>Das Klavierduo Zhao & Zech entstand im Jahr 2023 durch ein spontanes Zusammenspiel. Seitdem konzertieren die beiden Salzburger Studenten der Universität Mozarteum Johann Zhao (2003*) und Karim Zech (2004*) regelmäßig in Form von Rezitalen, Gastauftritten und Hauskonzerten - auf nationaler sowie internationaler Ebene. Zahlreiche bisherige Auftritte fanden u.a. in Salzburg, Wien, Deutschland und Japan statt. Ihr facettenreiches Repertoire erstreckt sich vom Barock bis hin zur zeitgenössischen Musik. Bedeutende künstlerische Impulse erhielten sie von Persönlichkeiten wie Prof. Cordelia Höfer-Teutsch oder Prof. Connie Shih. Weiters geplant sind Auftritte in Bayern (Ruhpolding), der Türkei (Istanbul) sowie in Salzburg im Schloss Goldegg und bei der kommenden Mozartwoche 2026. Beide sind Stipendiaten der Yehudi Menuhin Stiftung Live Music Now.
-                </p>
+    <main>
+        <section id="home" class="content-section active">
+            <h1 id="home-title">Johann Zhao | Pianist</h1>
+            <div class="home-content">
+                <div class="biografie-text">
+                    <p id="home-text-de">
+                        Johann Zhao wurde am 25.11.2003 in Salzburg, Österreich geboren. Er erhielt seinen ersten Klavierunterricht mit 5 Jahren
+                        und wurde im Alter von 9 Jahren in das Pre-College der Universität Mozarteum aufgenommen. Dort studierte er zunächst langjährig
+                        bei Prof. Cordelia Höfer-Teutsch und seit 2023 bei Prof. Connie Shih.
+                    </p>
+                    <p id="home-text-en" style="display: none;">
+                        Johann Zhao was born on November 25, 2003, in Salzburg, Austria. He received his first piano lessons at the age of 5
+                        and was admitted to the Pre-College of the Mozarteum University at the age of 9. There, he initially studied for many years
+                        with Prof. Cordelia Höfer-Teutsch and since 2023 with Prof. Connie Shih.
+                    </p>
+                    <p id="home-text-de">
+                        Seine ersten Klavierkonzerte von W. A. Mozart spielte er als 11-Jähriger bei den „Salzburger Schlosskonzerten" gemeinsam mit den Salzburger Solisten.
+                        Als 12-Jähriger gewann er beim New Yorker AADGT Klavierwettbewerb und spielte beim Schlusskonzert in der Carnegie Weill-Recital-Hall.
+                    </p>
+                    <p id="home-text-en" style="display: none;">
+                        He performed his first piano concertos by W. A. Mozart at the age of 11 at the "Salzburger Schlosskonzerte" together with the Salzburger Solisten.
+                        At the age of 12, he won the AADGT New York piano competition and performed at the final concert in the Carnegie Weill-Recital-Hall.
+                    </p>
+                    <p id="home-text-de">
+                        Mit 13 Jahren feierte er sein Debut als Solist mit den Bad Reichenhaller Philharmonikern unter der Leitung von Christian Simonis mit dem Klavierkonzert Nr. 1 von F. Mendelssohn und
+                        wurde sofort wieder engagiert. Johann ist zudem erster Preisträger diverser nationaler und internationaler Wettbewerbe, darunter 1. Preis beim internationalen
+                        Smetana Klavierwettbewerb in Pilsen (Tschechien), 1. Preis beim Golden Classical Music Award in New York, Grand Prix beim "Rising Stars"-Wettbewerb in Berlin, mehrfache 1. Preise mit Höchstpunktzahl beim deutschen „Jugend Musiziert"-Bundeswettbewerb (Duowertung) und seit 2016 mehrfache 1. Preise auf Bundesebene sowie Landessieger Salzburg 2020 beim österreichischen "prima la musica"-Wettbewerb.
+                    </p>
+                    <p id="home-text-en" style="display: none;">
+                        At the age of 13, he made his debut as a soloist with the Bad Reichenhall Philharmonic Orchestra under the baton of Christian Simonis performing Mendelssohn's Piano Concerto No. 1 and was immediately re-engaged. Johann is also the first prize winner of various national and international competitions, including the 1st prize at the international
+                        "Smetana Piano Competition" in Pilsen (Czech Republic), 1st prize at the "Golden Classical Music Award" in New York, Grand Prix at the "Rising Stars" competition in Berlin, multiple 1st prizes at the German national competition "Jugend Musiziert" with top scores and since 2016, multiple 1st prizes as well as federal state winner 2020 of the
+                        Austrian "prima la musica" competition.
+                    </p>
+                    <p id="home-text-de">
+                        Im April 2019 spielte Johann gemeinsam mit den Berliner Symphonikern unter der Leitung von Christoph Koncz das Liszt Klavierkonzert Nr. 1 in der Berliner Philharmonie. 
+                        Im selben Jahr gewann er sowohl den Nachwuchsförderpreis als auch den Publikumspreis der Sparkassen-Finanzgruppe beim Schleswig-Holstein Musik Festival im Duo mit Fabian Egger. In derselben Formation gewann er 2022 den Sparkassen-Sonderpreis anlässlich des Landeswettbewerbs "Jugend musiziert".
+                    </p>
+                     <p id="home-text-en" style="display: none;">
+                        In April 2019, Johann performed the Liszt Piano Concerto No. 1 with the Berlin Symphony Orchestra under the baton of Christoph Koncz at the Berlin Philharmonic. 
+                        That same year, he won both the Festival Prize and the Audience Award of the Sparkassen-Finanzgruppe at the Schleswig-Holstein Music Festival in a duo with Fabian Egger. In the same formation, he won the Sparkasse Special Prize at the federal state competition "Jugend musiziert" in 2022.
+                    </p>
+                    <p id="home-text-de">
+                       Im Herbst 2023 erhielt er eine Konzerteinladung nach Belgien, wo er mit seinem Lupus-Trio im Rahmen des „Amazing Haydn"-Festivals einen Rezitalabend gestaltete. Zudem gewann er im selben Jahr den Förderpreis des Tiroler Klassik Instrumentalistenpreises. 
+                       Johann wirkte des Öfteren bei den Operncamps der Salzburger Festspiele mit, wo er mit Dirigentinnen wie Anna Handler und Daniela Ivanova arbeitete und zusammen mit Mitgliedern der Wiener Philharmoniker musizierte. 
+                    </p>
+                    <p id="home-text-en" style="display: none;">
+                        In autumn 2023, he received an invitation to perform in Belgium, where he and his Lupus Trio performed a recital concert as part of the "Amazing Haydn" Festival. In the same year, he was awarded the sponsorship prize of the Tyrolean Classical Instrumentalist Prize. 
+                        Johann has frequently participated in the Salzburg Festival's opera camps, where he has worked with conductors such as Anna Handler and Daniela Ivanova, and has performed together with members of the Vienna Philharmonic. 
+                    </p>
+                    <p id="home-text-de">
+                        Gegen Ende des Jahres 2023 gründeten er und der Salzburger Komponist und Pianist Karim Zech das Klavierduo "Zhao & Zech". Gemeinsam konzertieren sie regelmäßig in Form von Duorezitalen und Gastauftritten im In- und Ausland. 
+                        Bisherige Auftritte fanden bereits in Wien, Salzburg, Japan, Deutschland und Istanbul statt. 
+                    </p>
+                    <p id="home-text-en" style="display: none;">
+                        In late 2023, he founded the piano duo "Zhao & Zech" with the Salzburg-based composer and pianist Karim Zech. Together they have been performing an expanding series of recitals and international engagements, with appearances to date in Vienna, Salzburg, Japan, Germany, and Istanbul.
+                    </p>
+                    <p id="home-text-de">
+                       Masterclasses u.a. bei Elisabeth Leonskaja, Gilbert Kalish, Kristian Bezuidenhout und Arnulf von Arnim vervollständigen seine Ausbildung. Johann ist Stipendiat der Deutschen Stiftung Musikleben und der Live Music Now Stiftung Salzburg.
+                       Weiters geplant sind Konzerte in Inzell, im Schloss Goldegg und bei der kommenden Mozartwoche 2026.
+                     </p>
+                    <p id="home-text-en" style="display: none;">
+                        He has participated in masterclasses with Elisabeth Leonskaja, Gilbert Kalish, Kristian Bezuidenhout and Arnulf von Arnim, among others. Johann is a scholarship holder of the Deutsche Stiftung Musikleben and the Live Music Now Foundation Salzburg. 
+                        Upcoming concerts will take place in Inzell (Bavaria), at the Goldegg Castle and at the coming Mozart Week 2026.
+                    </p>
+                </div>
+                <div class="home-image">
+                    <img src="Arme auf Klavier Johann.jpeg" alt="Johann Klavier" loading="lazy">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="repertoire" class="content-section">
-        <h2>Repertoire</h2>
-        <ul>
-            <li>Beethoven, Ludwig van - Sonate zu vier Händen in D-Dur, Op. 6</li>
-            <li>Beethoven, Ludwig van - 3 Märsche, Op. 45</li>
-            <li>Bizet, Georges - Carmen (arr. Rebrovič)</li>
-            <li>Bizet, Georges - Jeux d'enfants, Op. 22</li>
-            <li>Dukas, Paul - L'Apprenti sorcier/Der Zauberlehrling (arr. Roques)</li>
-            <li>Fauré, Gabriel - Dolly Suite, Op. 56</li>
-            <li>Gershwin, George - 3 Preludes (arr. Zhao & Zech)</li>
-            <li>Gershwin, George - Rhapsody in Blue (arr. Levine)</li>
-            <li>Grieg, Edvard - Peer Gynt Suites Nr. 1, Op. 46 & Nr. 2, Op. 55 (arr. Grieg)</li>
-            <li>Hindemith, Paul - Sonate für Klavier zu vier Händen</li>
-            <li>Ligeti, György - 5 Stücke für Klavier zu 4 Händen</li>
-            <li>Liszt, Franz - Hungarian Rhapsody Nr. 2, S. 244/2 (arr. Liszt)</li>            
-            <li>Lutosławski, Witold - Variationen über ein Thema von Paganini (arr. Timofeev)</li>
-            <li>Mozart, Wolfgang Amadeus - Sonate für Klavier zu vier Händen in D-Dur, KV 381</li>
-            <li>Mozart, Wolfgang Amadeus - Don Giovanni (Auswahl),KV 527</li>
-            <li>Mozart, Wolfgang Amadeus - Die Zauberflöte (Auswahl), KV 620</li>
-            <li>Mussorgski, Modest - Bilder einer Ausstellung (arr. Schaefer & Tschernow)</li>
-            <li>Orff, Carl - Carmina Burana (arr. Regner)</li>
-            <li>Rachmaninow, Sergei - Polka italienne</li>
-            <li>Reger, Max - 6 Burlesken, Op. 58</li>
-            <li>Schostakowitsch, Dmitri - Sinfonie Nr. 9, Op. 70 (arr. Schostakowitsch)</li>
-            <li>Schostakowitsch, Dmitri - Concertino, Op. 94</li>
-            <li>Schubert, Franz - Lebensstürme (Allegro in a-Moll), D. 947</li>
-            <li>Strawinsky, Igor - Petrushka, K012 (arr. Strawinsky)</li>
-            <li>Strawinsky, Igor - Le sacre du printemps, K015 (arr. Strawinsky)</li>
-            <li>Woelfl, Joseph - Sonate zu 4 Händen, Op. 17</li>
-            <li>Woelfl, Joseph - Favourite Airs of Mozart's celebrated Opera Le Nozze di Figaro, WoO 132</li>
-            <li>Zech, Karim - KonJunktionen, Op. 26</li>
-            <li>Zech, Karim - Vorstellung, Op. 33</li>
-            <li>Zhao & Zech - NocTURNe für 2 Pianisten</li>
-        </ul>
-    </section>
+        <section id="mediathek" class="content-section">
+            <h2 id="mediathek-title">Mediathek</h2>
+            <div class="home-video-gallery">
+                <div class="home-video-container">
+                    <iframe src="https://www.youtube.com/embed/6PsgyFTFKYY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="home-video-container">
+                    <iframe src="https://www.youtube.com/embed/wIdcxHYDgOA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="home-video-container">
+                    <iframe src="https://www.youtube.com/embed/vT4pfv8D-lw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="home-video-container">
+                    <iframe src="https://www.youtube.com/embed/6ZxbwE0Z_hc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="home-video-container">
+                    <iframe src="https://www.youtube.com/embed/_DamGQoBgAQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="home-video-container">
+                    <iframe src="https://www.youtube.com/embed/JgmEUkz47LY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
 
-    <section id="mediathek" class="content-section">
-        <h2>Mediathek</h2>
-        <div class="gallery">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/nk71Tvrkvz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/PuG-hYo4MVo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/YcGgMCiCIHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/AbvC3lGGB4Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/hmy8H0mxTAE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </section>
-    <section id="konzerte" class="content-section">
-        <h2>Konzerte</h2>
-        
-        <div class="concerts-list upcoming">
-            <div class="concert-item">
-                <h3>Auftritt in Siegsdorf</h3>
-                <p><strong>Datum:</strong> 7. Juni 2025, 21:00 Uhr</p>
-                <p><strong>Ort:</strong> Restaurant Papillon</p>
-                <p><strong>Programm:</strong> Klassik, Jazz, Pop und Filmmusik</p>
+        <section id="gallerie" class="content-section">
+            <h2 id="gallerie-title">Galerie</h2>
+            <div class="gallery">
+                <img src="Portrait Ernst Johann.jpeg" alt="ernst" loading="lazy" data-copyright="© Joanna Bergin">
+                <img src="Portrait Johann Zhao.jpeg" alt="portriat" loading="lazy" data-copyright="© Joanna Bergin">
+                <img src="Ganzkörper Johann.jpeg" alt="Ganzkörper" loading="lazy" data-copyright="© Joanna Bergin">
+                <img src="Portrait Outdoors Grün Johann.jpeg" alt="grün" loading="lazy" data-copyright="© Joanna Bergin">
+                <img src="Portrait Outdoors Weiß Johann.jpeg" alt="weiß" loading="lazy" data-copyright="© Joanna Bergin">
+                <img src="Klavier Johann breit heller.jpeg" alt="heller" loading="lazy" data-copyright="© Joanna Bergin">
             </div>
-            <div class="concert-item">
-                <h3>Konzert in Himeji, Japan</h3>
-                <p><strong>Datum:</strong> 15. August 2025</p>
-                <p><strong>Ort:</strong> Nori Christ Church</p>
-                <p><strong>Programm:</strong> Werke von Mozart, Fauré, Bizet, Liszt und Gershwin</strong> </p>
-            </div>
-            <div class="concert-item">
-                <h3>Konzert in Himeji, Japan</h3>
-                <p><strong>Datum:</strong> 17. August 2025</p>
-                <p><strong>Ort:</strong> Museum of Literature</p>
-                <p><strong>Programm:</strong> Werke von Mozart, Fauré, Bizet, Gershwin, Zech, Liszt, Hisaishi, Lutosławski und japan. Volkslieder</strong> </p>
-            </div>
-            <div class="concert-item">
-                <h3>Konzert in Ruhpolding</h3>
-                <p><strong>Datum:</strong> 29. August 2025</p>
-                <p><strong>Ort:</strong> Evangelisches Gemeindezentrum (Christl-Probst-Str. 19, Ruhpolding)</p>
-                <p><strong>Programm:</strong> Werke von Mozart, Fauré, Bizet, Zech, Mussorgski und Gershwin</strong> </p>
-            </div>
-            <div class="concert-item">
-                <h3>Konzert in Istanbul, Türkei</h3>
-                <p><strong>Datum:</strong> 18. September 2025</p>
-                <p><strong>Ort:</strong> Renaissance Polat Istanbul Hotel</p>
-                <p><strong>Programm:</strong> Klassik und Romantik</p>
-            </div>
-            <div class="concert-item">
-                <h3>Konzert in Salzburg</h3>
-                <p><strong>Datum:</strong> 14. November 2025, 19:30 Uhr</p>
-                <p><strong>Ort:</strong> Musikum Salzburg Stadt, Steinway Saal</p>
-                <p><strong>Programm:</strong> Werke von Mozart, Hindemith, Reger und Strawinsky (Le sacre du printemps)</p>
-            </div>
-            <div class="concert-item">
-                <h3>Konzert bei der Mozartwoche 2026</h3>
-                <p><strong>Datum:</strong> 24. Jänner 2026, 15:00 Uhr</p>
-                <p><strong>Ort:</strong> DomQuartier Salzburg, Rittersaal der Residenz</p>
-                <p><strong>Programm:</strong> K. Zech: Konzert für Klavier zu vier Händen und Kammerorchester</p>
-            </div>
-            <div class="concert-item">
-                <h3>Konzert im Schloss Goldegg</h3>
-                <p><strong>Datum:</strong> 29. Jänner 2026, 20:00 Uhr</p>
-                <p><strong>Ort:</strong> Schloss Goldegg</p>
-                <p><strong>Programm:</strong> Mozart, Zeitgenossen und zeitgenössische Musik</p>
-            </div>
-            <div class="concert-item">
-                <h3>Konzert in Inzell</h3>
-                <p><strong>Datum:</strong> 14. März 2026</p>
-                <p><strong>Ort:</strong> Musikschule Inzell</p>
-                <p><strong>Programm:</strong> Wiener Klassik bis zeitgenössische Musik</p>
-        </div>
-        
-        <h3 class="past-concerts-title">Vergangene Konzerte</h3>
-        <div class="concerts-list past">
-            <div class="concert-item past">
-                <h3>Konzert in Salzburg</h3>
-                <p><strong>Datum:</strong> 10. Mai 2025, 19:30 Uhr</p>
-                <p><strong>Ort:</strong> Musikum Salzburg Stadt, Kleiner Saal</p>
-                <p><strong>Programm:</strong> Werke von Mozart, Orff, Bizet, Dukas, Beethoven, Schostakowitsch, Rihm und Lutosławski</p>
-            </div>
-            <div class="concert-item past">
-            <h3>Konzert in Salzburg</h3>
-                <p><strong>Datum:</strong> 10. Jänner 2025, 19:00 Uhr</p>
-                <p><strong>Ort:</strong> Musikum Salzburg Stadt, Steinway Saal</p>
-                <p><strong>Programm:</strong> Werke von Beethoven, Grieg, Ligeti, Fauré, Strawinsky, Zech und Bizet</p>
-            </div>
-            <div class="concert-item past">
-            <h3>Konzert in Hallein</h3>
-                <p><strong>Datum:</strong> 14. Dezember 2024, 19:30 Uhr</p>
-                <p><strong>Ort:</strong> Salinenbühne, Pernerinsel</p>
-                <p><strong>Programm:</strong> Werke von Mozart, Woelfl und Eigenkompositionen</p>
-            </div>
-            <div class="concert-item past">
-            <h3>Auftritt beim Fauré Festival 2024</h3>
-                <p><strong>Datum:</strong> 2. November 2024, 18:00 Uhr</p>
-                <p><strong>Ort:</strong> Universität Mozarteum, Solitär</p>
-                <p><strong>Programm:</strong> Werke von Fauré</p>
-            </div>
-            <div class="concert-item past">
-            <h3>Konzert in Wien</h3>
-                <p><strong>Datum:</strong> 31. Mai 2024, 19:00 Uhr</p>
-                <p><strong>Ort:</strong> Gesellschaft für Musiktheater</p>
-                <p><strong>Programm:</strong> Werke von Woelfl, Schubert, Schostakowitsch, Zech und Gershwin</p>
-            </div>
-            <div class="concert-item past">
-            <h3>Konzert in Salzburg</h3>
-                <p><strong>Datum:</strong> 27. Mai 2024, 20:00 Uhr</p>
-                <p><strong>Ort:</strong> Musikum Salzburg Stadt, Kleiner Saal</p>
-                <p><strong>Programm:</strong> Werke von Woelfl, Schubert, Schostakowitsch, Zech und Gershwin</p>
-        </div>
-    </section>
-    <section id="gallerie" class="content-section">
-        <h2>Galerie</h2>
-        <div class="image-gallery">
-            <div class="gallery-item">
-                <img src="IMG_1747.jpeg" alt="Konzertfoto 1" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1748.jpeg" alt="Konzertfoto 2" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1749.jpeg" alt="Konzertfoto 3" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1750.jpeg" alt="Konzertfoto 4" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1752.jpeg" alt="Konzertfoto 5" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1753.jpeg" alt="Konzertfoto 6" loading="lazy">
-            </div>
-             <div class="gallery-item">
-                <img src="IMG_1756.jpeg" alt="Konzertfoto 7" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1758.jpeg" alt="Konzertfoto 8" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1759.jpeg" alt="Konzertfoto 9" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1760.jpeg" alt="Konzertfoto 10" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1761.jpeg" alt="Konzertfoto 11" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="IMG_1751.jpeg" alt="Konzertfoto 12" loading="lazy">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="kontakt" class="content-section">
-        <h2>Kontakt</h2>
-        <form action="https://formsubmit.co/zhao.zech@gmail.com" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">E-Mail:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="nachricht">Nachricht:</label>
-            <textarea id="nachricht" name="nachricht" required></textarea>
-            <button type="submit">Senden</button>
-        </form>
-    </section>
+        <section id="news-presse" class="content-section">
+            <h2 id="news-presse-title">News & Presse</h2>
+            <div class="news-container">
+                <p id="news-text"></p>
+                <div class="news-item">
+                    <h3>Klassiek Centraal</h3>
+                    <p>Konzert im Rahmen des "Amazing Haydn"-Festival <a href="https://klassiek-centraal.be/mechelen-in-de-ban-van-drie-jonge-wolven/" target="_blank">Klassiek Centraal</a>.</p>
+                </div>
+                <div class="news-item">
+                    <h3>KulturVision</h3>
+                    <p>Konzert "Podium der Jugend" im Barocksaal Tegernsee <a href="https://www.kulturvision-aktuell.de/podium-der-jugend-barocksaal-tegernsee-freundeskreis-junger-musiker-2022/" target="_blank">KulturVision</a>.</p>
+                </div>
+                <div class="news-item">
+                    <h3>Kieler Nachrichten</h3>
+                    <p>Festivalpreis und Publikumspreis beim Schleswig-Holstein Musikfestival <a href="https://www.kn-online.de/kultur/junges-duo-gewinnt-wettbewerb-5JO4SRJPRPQ2HWXPXZWAGOMG2I.html" target="_blank">Kieler Nachrichten</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="zhao-zech" class="content-section">
+            <h2 id="zhao-zech-title">Zhao & Zech</h2>
+            <p>Das Klavierduo Zhao & Zech (Johann Zhao & Karim Zech) besteht aus zwei Studenten der Universität Mozarteum Salzburg und entstand im Jahr 2023 durch ein spontan geplantes Zusammenspiel bei einer Veranstaltung. Seither spielen sie regelmäßig in Konzerten und geben Rezitals auf nationaler als auch internationaler Ebene. Bisherige Auftritte gab es in Salzburg, Wien, Japan und Deutschland. Ihr breites und abwechslungsreiches Repertoire erstrahlt vom Barock bis hin zur zeitgenössischen Musik. Bedeutende Impulse erhielten sie bereits von Persönlichkeiten wie Prof. Cordelia Höfer-Teutsch oder Prof. Connie Shih. </p>
+        </section>
+
+        <section id="kontakt" class="content-section">
+            <h2 id="kontakt-title">Kontakt</h2>
+            <form id="contactForm" action="https://formspree.io/f/mpwqvywb" method="POST">
+                <label for="name" id="kontakt-form-name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email" id="kontakt-form-email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message" id="kontakt-form-message">Nachricht:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit" id="kontakt-form-button">Senden</button>
+            </form>
+            <p id="confirmation" style="display: none;">Vielen Dank für deine Nachricht!</p>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Zhao & Zech</p>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@JohannZhao" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.instagram.com/johann._.zhao" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <div class="copyright">© 2025 Johann Zhao</div>
     </footer>
 
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-img-container" style="position: relative;">
+          <span class="close-lightbox">&times;</span>
+          <img id="lightbox-img" src="" alt="Lightbox Image">
+          <span id="lightbox-copyright" class="lightbox-copyright"></span>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
 
 
 
