@@ -36,125 +36,94 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Lightbox-Funktionalität für die Gallerie
+// Lightbox-Funktionalität für die Gallerie (erweitert: zeigt Copyright/Credit)
 document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.createElement('div');
-    lightbox.id = 'lightbox';
-    document.body.appendChild(lightbox);
-    
+    // Erstelle Lightbox-Container nur einmal
+    let lightbox = document.getElementById('lightbox');
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        document.body.appendChild(lightbox);
+    }
+
+    // Innere Struktur: wrapper, img, meta (title & credit), close btn (optional)
+    function createLightboxStructure() {
+        lightbox.innerHTML = '';
+        const backdrop = document.createElement('div');
+        backdrop.className = 'lightbox-backdrop';
+
+        const content = document.createElement('div');
+        content.className = 'lightbox-content';
+
+        const img = document.createElement('img');
+        img.className = 'lightbox-img';
+        img.alt = '';
+
+        const meta = document.createElement('div');
+        meta.className = 'lightbox-meta';
+        const title = document.createElement('div');
+        title.className = 'lightbox-title';
+        const credit = document.createElement('div');
+        credit.className = 'lightbox-credit';
+
+        meta.appendChild(title);
+        meta.appendChild(credit);
+
+        // optional Close-Button (für Nutzerfreundlichkeit)
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'lightbox-close';
+        closeBtn.setAttribute('aria-label', 'Schließen');
+        closeBtn.innerHTML = '&times;';
+
+        content.appendChild(closeBtn);
+        content.appendChild(img);
+        content.appendChild(meta);
+
+        lightbox.appendChild(backdrop);
+        lightbox.appendChild(content);
+
+        // Close handlers
+        backdrop.addEventListener('click', () => closeLightbox());
+        closeBtn.addEventListener('click', () => closeLightbox());
+        return { img, title, credit, content };
+    }
+
+    function openLightbox(src, alt, creditText) {
+        const { img, title, credit } = createLightboxStructure();
+        img.src = src;
+        img.alt = alt || '';
+        title.textContent = alt || ''; // falls du Titel verwenden möchtest
+        credit.textContent = creditText || '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // verhindert Scroll hinter der Lightbox
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.innerHTML = '';
+        document.body.style.overflow = '';
+    }
+
     galleryItems.forEach(item => {
+        item.style.cursor = 'zoom-in';
         item.addEventListener('click', function() {
-            lightbox.classList.add('active');
-            const img = document.createElement('img');
-            img.src = this.src;
-            img.alt = this.alt;
-            
-            while (lightbox.firstChild) {
-                lightbox.removeChild(lightbox.firstChild);
-            }
-            
-            lightbox.appendChild(img);
+            // Preferiere ein größeres Bild, wenn du separate Fullsize-Dateien nutzt.
+            // Hier verwenden wir aktuell die src des Thumbnails (falls Fullsize verfügbar, setze data-full auf das img-Element).
+            const full = this.dataset.full || this.src;
+            const credit = this.dataset.credit || '';
+            const title = this.alt || '';
+            openLightbox(full, title, credit);
         });
     });
-    
-    lightbox.addEventListener('click', function(e) {
-        if (e.target !== e.currentTarget) return;
-        lightbox.classList.remove('active');
-    });
 
-    // Automatische Sortierung von Konzerten in vergangen und bevorstehend
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Uhrzeit auf Mitternacht setzen für genauen Vergleich
-    
-    const concertItems = document.querySelectorAll('.concerts-list.upcoming .concert-item');
-    const pastConcertsList = document.querySelector('.concerts-list.past');
-    
-    concertItems.forEach(item => {
-        const dateText = item.querySelector('p:first-of-type').textContent;
-        // Erweiterter RegEx, der verschiedene Datumsformate handhabt
-        const dateMatch = dateText.match(/(\d{1,2})\.\s(\w+)\s(\d{4})(?:,\s(\d{1,2}):(\d{2}))?/);
-        
-        if (dateMatch) {
-            const day = parseInt(dateMatch[1]);
-            const monthName = dateMatch[2];
-            const year = parseInt(dateMatch[3]);
-            const hour = dateMatch[4] ? parseInt(dateMatch[4]) : 0;
-            const minute = dateMatch[5] ? parseInt(dateMatch[5]) : 0;
-            
-            // Monatsnamen in Zahlen umwandeln
-            const months = {
-                'Januar': 0, 'Februar': 1, 'März': 2, 'April': 3, 'Mai': 4, 'Juni': 5,
-                'Juli': 6, 'August': 7, 'September': 8, 'Oktober': 9, 'November': 10, 'Dezember': 11
-            };
-            
-            const month = months[monthName];
-            const concertDate = new Date(year, month, day, hour, minute);
-            
-            if (concertDate < today) {
-                item.classList.add('past');
-                pastConcertsList.appendChild(item);
+    // Esc schließt Lightbox
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const lb = document.getElementById('lightbox');
+            if (lb && lb.classList.contains('active')) {
+                closeLightbox();
             }
         }
     });
-    
-    // Verstecke den "Vergangene Konzerte"-Abschnitt wenn keine vorhanden sind
-    if (pastConcertsList.children.length === 0) {
-        document.querySelector('.past-concerts-title').style.display = 'none';
-    } else {
-        // Sortiere vergangene Konzerte nach Datum (neueste zuerst)
-        const pastItems = Array.from(pastConcertsList.children);
-        pastItems.sort((a, b) => {
-            const dateA = getDateFromItem(a);
-            const dateB = getDateFromItem(b);
-            return dateB - dateA; // Absteigende Sortierung
-        });
-        
-        // Leere die Liste und füge sortierte Elemente wieder ein
-        pastConcertsList.innerHTML = '';
-        pastItems.forEach(item => pastConcertsList.appendChild(item));
-    }
 });
-
-// Hilfsfunktion zum Extrahieren des Datums aus einem Konzert-Item
-function getDateFromItem(item) {
-    const dateText = item.querySelector('p:first-of-type').textContent;
-    const dateMatch = dateText.match(/(\d{1,2})\.\s(\w+)\s(\d{4})(?:,\s(\d{1,2}):(\d{2}))?/);
-    
-    if (dateMatch) {
-        const day = parseInt(dateMatch[1]);
-        const monthName = dateMatch[2];
-        const year = parseInt(dateMatch[3]);
-        const hour = dateMatch[4] ? parseInt(dateMatch[4]) : 0;
-        const minute = dateMatch[5] ? parseInt(dateMatch[5]) : 0;
-        
-        const months = {
-            'Januar': 0, 'Februar': 1, 'März': 2, 'April': 3, 'Mai': 4, 'Juni': 5,
-            'Juli': 6, 'August': 7, 'September': 8, 'Oktober': 9, 'November': 10, 'Dezember': 11
-        };
-        
-        const month = months[monthName];
-        return new Date(year, month, day, hour, minute);
-    }
-    return new Date(0); // Falls kein Datum gefunden, sehr altes Datum zurückgeben
-}
-// Hamburger Menu Funktionalität
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navUl = document.querySelector('nav ul');
-    
-    if (hamburger && navUl) {
-        hamburger.addEventListener('click', function() {
-            navUl.classList.toggle('active');
-        });
-        
-        // Schließe das Menü, wenn auf einen Link geklickt wird
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                navUl.classList.remove('active');
-            });
-        });
-    }
-});
-
-// REST DES JAVASCRIPTS UNVERÄNDERT
