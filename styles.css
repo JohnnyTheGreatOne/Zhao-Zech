@@ -369,3 +369,157 @@ body {
 }
 
 /* ALLE BESTEHENDEN STILE UNVERÄNDERT */
+/* --- vorhandene Styles behalten (oben) --- */
+
+/* Lightbox Stile (ergänzt/überschreibt vorhandene #lightbox-Teile) */
+#lightbox {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 95%;
+    max-height: 95%;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    pointer-events: auto;
+}
+/* Lightbox: Bild-Größenlimit, damit vergrößerte Bilder nicht zu groß werden */
+.lightbox-img {
+    max-width: 90vw;                      /* höchstens 90% der Viewport-Breite */
+    max-height: calc(100vh - 140px);      /* höchstens Viewport-Höhe minus Platz für Meta/Abstände */
+    width: auto;                          /* hält Seitenverhältnis */
+    height: auto;                         /* hält Seitenverhältnis */
+    object-fit: contain;                  /* skaliert das Bild vollständig sichtbar */
+    border-radius: 6px;
+    display: block;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    background: #111;
+}
+
+/* Meta Bereich unter dem Bild (Titel + Credit) */
+.lightbox-meta {
+    width: 100%;
+    max-width: 1200px;
+    color: #eaeaea;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* optional Titel */
+.lightbox-title {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Credit (dezent) */
+.lightbox-credit {
+    font-size: 0.9rem;
+    color: #cfcfcf;
+    opacity: 0.95;
+}
+
+/* Close Button */
+.lightbox-close {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10002;
+}
+
+/* Responsives Verhalten: bei kleinen Bildschirmen etwas kompakter */
+@media (max-width: 480px) {
+    .lightbox-meta { font-size: 0.9rem; }
+    .lightbox-credit { font-size: 0.85rem; }
+    .lightbox-close { font-size: 1.2rem; width: 32px; height: 32px; }
+}
+/* --- Fix: Lightbox Bildgrößen begrenzen (füge ans Ende von styles.css) --- */
+
+/* Lightbox-Container: begrenze Inhalt auf Viewport-Größen */
+#lightbox {
+    display: none; /* bleibt wie gehabt, wird durch .active sichtbar */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Wenn aktiv: flex container */
+  #lightbox.active {
+    display: flex;
+  }
+  
+  /* Content-Wrapper begrenzen (verhindert, dass Inhalte größer als Viewport werden) */
+  #lightbox .lightbox-content {
+    position: relative;
+    max-width: 95vw;    /* höchstens 95% der Breite */
+    max-height: 95vh;   /* höchstens 95% der Höhe */
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;   /* verhindert Überschuss außerhalb des Wrappers */
+    box-sizing: border-box;
+  }
+  
+  /* Bild selbst: skaliere im Verhältnis, überschreibe andere generische img-Regeln */
+  #lightbox .lightbox-img {
+    max-width: 90vw !important;       /* nicht breiter als Viewport minus Abstand */
+    max-height: 80vh !important;      /* nicht höher als Viewport minus Meta-Bereich */
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+  }
+  
+  /* Falls das Meta-Feld zu viel Platz braucht, wird es scrollbar, nicht das Bild */
+  #lightbox .lightbox-meta {
+    width: 100%;
+    max-height: calc(95vh -  ( /* Platz für Bild; passt dynamisch */ 0px ));
+    overflow: auto;
+  }
+  
+  /* Backup-Regel: falls es globale img { width: 100% } gibt, wird das nur in der Lightbox überschrieben */
+  #lightbox img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 80vh !important;
+  }
