@@ -1,3 +1,46 @@
+// Hamburger Menu Funktionalität
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    // Hamburger Menu Toggle
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        
+        // Icon ändern (Bars zu X und zurück)
+        const icon = this.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Menü schließen bei Klick auf einen Link (mobile)
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+    });
+
+    // Menü schließen bei Klick außerhalb (optional)
+    document.addEventListener('click', function(event) {
+        const isClickInsideNav = navMenu.contains(event.target) || hamburger.contains(event.target);
+        if (!isClickInsideNav && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+});
+
 // Smooth Scroll für die Navigation mit Offset
 document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
