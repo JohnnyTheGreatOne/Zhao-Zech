@@ -1,88 +1,88 @@
-// Hamburger Menu Funktionalität
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // --- KONZERT-LOGIK (Automatisierte Trennung) ---
+    const concertData = [
+        // Kommende / Gerade vergangene
+        { date: "2025-12-20T19:00:00", title: "Auftritt in Siegsdorf", location: "Restaurant Papillon", program: "Klassik, Jazz, Pop und Filmmusik" },
+        { date: "2025-12-21T17:00:00", title: "Konzert in Salzburg", location: "Musikum Salzburg Stadt, Steinway Saal", program: "Best of Hollywood (Filmmusik)" },
+        { date: "2026-01-24T15:00:00", title: "Konzert bei der Mozartwoche 2026", location: "DomQuartier Salzburg, Rittersaal der Residenz", program: "Zech: Konzert für Klavier zu vier Händen und Ensemble" },
+        { date: "2026-01-29T20:00:00", title: "Konzert im Schloss Goldegg", location: "Schloss Goldegg", program: "Mozart, Zeitgenossen und zeitgenössische Musik" },
+        { date: "2026-03-14", title: "Konzert in Inzell", location: "Musikschule Inzell", program: "Wiener Klassik bis zeitgenössische Musik" },
+        // Vergangene
+        { date: "2025-11-14T19:30:00", title: "Konzert in Salzburg", location: "Musikum Salzburg Stadt, Steinway Saal", program: "Werke von Mozart, Hindemith, Reger und Strawinsky" },
+        { date: "2025-09-18", title: "Konzert in Istanbul", location: "Renaissance Polat Istanbul Hotel", program: "Klassik und Romantik" },
+        { date: "2025-08-29", title: "Konzert in Ruhpolding", location: "Pfarrzentrum, Evangelische Kirchengemeinde", program: "Werke von Mozart, Orff, Bizet, Dukas, Beethoven, Schostakowitsch, Rihm und Lutosławski" },
+        { date: "2025-06-07T21:00:00", title: "Auftritt in Siegsdorf", location: "Restaurant Papillon", program: "Klassik, Jazz und Pop" },
+        { date: "2025-05-10T19:30:00", title: "Konzert in Salzburg", location: "Kleiner Saal, Musikum Salzburg Stadt", program: "Werke von Mozart, Orff, Bizet, Dukas, Beethoven, Schostakowitsch, Rihm und Lutosławski" },
+        { date: "2024-12-14T19:30:00", title: "Konzert in Hallein", location: "Salinenbühne, Pernerinsel", program: "Werke von Mozart, Woelfl und Eigenkompositionen" },
+        { date: "2024-11-02T18:00:00", title: "Auftritt beim Fauré Festival 2024", location: "Solitär, Universität Mozarteum", program: "Werke von Fauré" },
+        { date: "2024-02-12T19:00:00", title: "Konzert in Wien", location: "Gesellschaft für Musiktheater", program: "Werke von Woelfl, Schubert, Schostakowitsch, Zech und Gershwin" }
+    ];
+
+    const upcomingList = document.querySelector('.concerts-list.upcoming');
+    const pastList = document.querySelector('.concerts-list.past');
+    const now = new Date();
+
+    upcomingList.innerHTML = '';
+    pastList.innerHTML = '';
+
+    // Sortieren (Zukunft aufsteigend)
+    concertData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    concertData.forEach(concert => {
+        const cDate = new Date(concert.date);
+        const dateString = cDate.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+        const timeString = concert.date.includes('T') ? `, ${cDate.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })} Uhr` : '';
+
+        const html = `
+            <div class="concert-item">
+                <h3>${concert.title}</h3>
+                <p><strong>Datum:</strong> ${dateString}${timeString}</p>
+                <p><strong>Ort:</strong> ${concert.location}</p>
+                <p><strong>Programm:</strong> ${concert.program}</p>
+            </div>`;
+
+        if (cDate >= now) {
+            upcomingList.innerHTML += html;
+        } else {
+            pastList.insertAdjacentHTML('afterbegin', html);
+        }
+    });
+
+    if (upcomingList.innerHTML === '') upcomingList.innerHTML = '<p>Aktuell sind keine Konzerte geplant.</p>';
+
+    // --- NAVIGATION (Hamburger & Smooth Scroll) ---
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('nav ul');
     const navLinks = document.querySelectorAll('nav ul li a');
 
-    // Hamburger Menu Toggle
     hamburger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
-        
-        // Icon ändern (Bars zu X und zurück)
         const icon = this.querySelector('i');
-        if (navMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-
-    // Menü schließen bei Klick auf einen Link (mobile)
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            const icon = hamburger.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        });
-    });
-
-    // Menü schließen bei Klick außerhalb (optional)
-    document.addEventListener('click', function(event) {
-        const isClickInsideNav = navMenu.contains(event.target) || hamburger.contains(event.target);
-        if (!isClickInsideNav && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            const icon = hamburger.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-});
-
-// Smooth Scroll für die Navigation mit Offset
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        const offset = 80; // Höhe der Navigation anpassen
-
-        window.scrollTo({
-            top: targetElement.offsetTop - offset,
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Aktiven Link beim Scrollen hervorheben
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav ul li a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - sectionHeight / 3) {
-            current = section.getAttribute('id');
-        }
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
     });
 
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
-});
+        link.addEventListener('click', function(e) {
+            navMenu.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
 
-// Lightbox-Funktionalität für die Gallerie (erweitert: zeigt Copyright/Credit)
-document.addEventListener('DOMContentLoaded', function() {
+            // Smooth Scroll Logic
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // --- LIGHTBOX (Galerie) ---
     const galleryItems = document.querySelectorAll('.gallery-item img');
-    // Erstelle Lightbox-Container nur einmal
     let lightbox = document.getElementById('lightbox');
     if (!lightbox) {
         lightbox = document.createElement('div');
@@ -90,83 +90,29 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(lightbox);
     }
 
-    // Innere Struktur: wrapper, img, meta (title & credit), close btn (optional)
-    function createLightboxStructure() {
-        lightbox.innerHTML = '';
-        const backdrop = document.createElement('div');
-        backdrop.className = 'lightbox-backdrop';
-
-        const content = document.createElement('div');
-        content.className = 'lightbox-content';
-
-        const img = document.createElement('img');
-        img.className = 'lightbox-img';
-        img.alt = '';
-
-        const meta = document.createElement('div');
-        meta.className = 'lightbox-meta';
-        const title = document.createElement('div');
-        title.className = 'lightbox-title';
-        const credit = document.createElement('div');
-        credit.className = 'lightbox-credit';
-
-        meta.appendChild(title);
-        meta.appendChild(credit);
-
-        // optional Close-Button (für Nutzerfreundlichkeit)
-        const closeBtn = document.createElement('button');
-        closeBtn.className = 'lightbox-close';
-        closeBtn.setAttribute('aria-label', 'Schließen');
-        closeBtn.innerHTML = '&times;';
-
-        content.appendChild(closeBtn);
-        content.appendChild(img);
-        content.appendChild(meta);
-
-        lightbox.appendChild(backdrop);
-        lightbox.appendChild(content);
-
-        // Close handlers
-        backdrop.addEventListener('click', () => closeLightbox());
-        closeBtn.addEventListener('click', () => closeLightbox());
-        return { img, title, credit, content };
-    }
-
-    function openLightbox(src, alt, creditText) {
-        const { img, title, credit } = createLightboxStructure();
-        img.src = src;
-        img.alt = alt || '';
-        title.textContent = alt || ''; // falls du Titel verwenden möchtest
-        credit.textContent = creditText || '';
+    function openLightbox(src, creditText) {
+        lightbox.innerHTML = `
+            <div class="lightbox-backdrop"></div>
+            <div class="lightbox-content">
+                <button class="lightbox-close">&times;</button>
+                <img src="${src}" class="lightbox-img">
+                <div class="lightbox-meta"><div class="lightbox-credit">${creditText}</div></div>
+            </div>`;
         lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // verhindert Scroll hinter der Lightbox
+        document.body.style.overflow = 'hidden';
+
+        lightbox.querySelector('.lightbox-backdrop').onclick = closeLightbox;
+        lightbox.querySelector('.lightbox-close').onclick = closeLightbox;
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
-        lightbox.innerHTML = '';
         document.body.style.overflow = '';
     }
 
-    galleryItems.forEach(item => {
-        item.style.cursor = 'zoom-in';
-        item.addEventListener('click', function() {
-            // Preferiere ein größeres Bild, wenn du separate Fullsize-Dateien nutzt.
-            // Hier verwenden wir aktuell die src des Thumbnails (falls Fullsize verfügbar, setze data-full auf das img-Element).
-            const full = this.dataset.full || this.src;
-            const credit = this.dataset.credit || '';
-            const title = this.alt || '';
-            openLightbox(full, title, credit);
-        });
+    galleryItems.forEach(img => {
+        img.onclick = () => openLightbox(img.src, img.dataset.credit || '');
     });
 
-    // Esc schließt Lightbox
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const lb = document.getElementById('lightbox');
-            if (lb && lb.classList.contains('active')) {
-                closeLightbox();
-            }
-        }
-    });
+    window.onkeydown = (e) => { if (e.key === 'Escape') closeLightbox(); };
 });
