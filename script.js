@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: "2026-01-24T15:00:00", title: "Konzert bei der Mozartwoche 2026", location: "DomQuartier Salzburg, Rittersaal der Residenz", program: "Zech: Konzert für Klavier zu vier Händen und Ensemble" },
         { date: "2026-01-29T20:00:00", title: "Konzert im Schloss Goldegg", location: "Schloss Goldegg", program: "Mozart, Zeitgenossen und zeitgenössische Musik" },
         { date: "2026-03-14", title: "Konzert in Inzell", location: "Musikschule Inzell", program: "Wiener Klassik bis zeitgenössische Musik" },
+        { date: "2026-08-09", title: "Auftritt bei den Salzburger Hochschulwochen", location: "Universitätsaula Salzburg", program: "Wiener Klassik und Romantik" },
         // Vergangene
         { date: "2025-11-14T19:30:00", title: "Konzert in Salzburg", location: "Musikum Salzburg Stadt, Steinway Saal", program: "Werke von Mozart, Hindemith, Reger und Strawinsky" },
         { date: "2025-09-18", title: "Konzert in Istanbul", location: "Renaissance Polat Istanbul Hotel", program: "Klassik und Romantik" },
@@ -116,3 +117,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.onkeydown = (e) => { if (e.key === 'Escape') closeLightbox(); };
 });
+
