@@ -6,18 +6,21 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: "2025-12-20T19:00:00", title: "Auftritt in Siegsdorf", location: "Restaurant Papillon", program: "Klassik, Jazz, Pop und Filmmusik" },
         { date: "2025-12-21T17:00:00", title: "Konzert in Salzburg", location: "Musikum Salzburg Stadt, Steinway Saal", program: "Best of Hollywood (Filmmusik)" },
         { date: "2026-01-24T15:00:00", title: "Konzert bei der Mozartwoche 2026", location: "DomQuartier Salzburg, Rittersaal der Residenz", program: "Zech: Konzert für Klavier zu vier Händen und Ensemble" },
-        { date: "2026-01-29T20:00:00", title: "Konzert im Schloss Goldegg", location: "Schloss Goldegg", program: "Mozart, Zeitgenossen und zeitgenössische Musik" },
-        { date: "2026-03-14T18:00:00", title: "Konzert in Inzell", location: "Musikschule Inzell", program: "Wiener Klassik bis zeitgenössische Musik" },
-        { date: "2026-08-09", title: "Auftritt bei den Salzburger Hochschulwochen", location: "Universitätsaula Salzburg", program: "Wiener Klassik und Romantik" },
+        { date: "2026-01-29T20:00:00", title: "Rezital im Schloss Goldegg", location: "Schloss Goldegg", program: "Mozart, Zeitgenossen und zeitgenössische Musik" },
+        { date: "2026-03-14T18:00:00", title: "Rezital in Inzell", location: "Musikschule Inzell", program: "Wiener Klassik bis zeitgenössische Musik" },
+        { date: "2026-04-12T18:00:00", title: "Live Music Now Benefizkonzert in Salzburg", location: "Universität Mozarteum, Solitär", program: "Klassik" },
+        { date: "2026-06-20", title: "Straußiade Festival Altenmarkt", location: "Altenmarkt im Pongau", program: "Wiener Klassik und Romantik" },
+        { date: "2026-08-09", title: "Salzburger Hochschulwochen", location: "Universitätsaula Salzburg", program: "Wiener Klassik und Romantik" },
         // Vergangene
-        { date: "2025-11-14T19:30:00", title: "Konzert in Salzburg", location: "Musikum Salzburg Stadt, Steinway Saal", program: "Werke von Mozart, Hindemith, Reger und Strawinsky" },
+        { date: "2025-11-14T19:30:00", title: "Rezital in Salzburg", location: "Musikum Salzburg Stadt, Steinway Saal", program: "Werke von Mozart, Hindemith, Reger und Strawinsky" },
         { date: "2025-09-18", title: "Konzert in Istanbul", location: "Renaissance Polat Istanbul Hotel", program: "Klassik und Romantik" },
-        { date: "2025-08-29", title: "Konzert in Ruhpolding", location: "Pfarrzentrum, Evangelische Kirchengemeinde", program: "Werke von Mozart, Orff, Bizet, Dukas, Beethoven, Schostakowitsch, Rihm und Lutosławski" },
+        { date: "2025-08-29", title: "Rezital in Ruhpolding", location: "Evangelische Kirchengemeinde, Pfarrzentrum", program: "Werke von Mozart, Orff, Bizet, Dukas, Beethoven, Schostakowitsch, Rihm und Lutosławski" },
         { date: "2025-06-07T21:00:00", title: "Auftritt in Siegsdorf", location: "Restaurant Papillon", program: "Klassik, Jazz und Pop" },
-        { date: "2025-05-10T19:30:00", title: "Konzert in Salzburg", location: "Kleiner Saal, Musikum Salzburg Stadt", program: "Werke von Mozart, Orff, Bizet, Dukas, Beethoven, Schostakowitsch, Rihm und Lutosławski" },
-        { date: "2024-12-14T19:30:00", title: "Konzert in Hallein", location: "Salinenbühne, Pernerinsel", program: "Werke von Mozart, Woelfl und Eigenkompositionen" },
-        { date: "2024-11-02T18:00:00", title: "Auftritt beim Fauré Festival 2024", location: "Solitär, Universität Mozarteum", program: "Werke von Fauré" },
-        { date: "2024-02-12T19:00:00", title: "Konzert in Wien", location: "Gesellschaft für Musiktheater", program: "Werke von Woelfl, Schubert, Schostakowitsch, Zech und Gershwin" }
+        { date: "2025-05-10T19:30:00", title: "Rezital in Salzburg", location: "Musikum Salzburg Stadt, Kleiner Saal", program: "Werke von Mozart, Orff, Bizet, Dukas, Beethoven, Schostakowitsch, Rihm und Lutosławski" },
+        { date: "2025-04-27T18:00:00", title: "Live Music Now Benefizkonzert in Salzburg", location: "Universität Mozarteum, Solitär", program: "Liszt: Ungarische Rhapsodie Nr. 2" },
+        { date: "2024-12-14T19:30:00", title: "Konzert in Hallein", location: "Pernerinsel, Salinenbühne", program: "Werke von Mozart, Woelfl und Eigenkompositionen" },
+        { date: "2024-11-02T18:00:00", title: "Fauré Festival 2024", location: "Universität Mozarteum, Solitär", program: "Werke von Fauré" },
+        { date: "2024-02-12T19:00:00", title: "Rezital in Wien", location: "Gesellschaft für Musiktheater", program: "Werke von Woelfl, Schubert, Schostakowitsch, Zech und Gershwin" }
     ];
 
     const upcomingList = document.querySelector('.concerts-list.upcoming');
@@ -117,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.onkeydown = (e) => { if (e.key === 'Escape') closeLightbox(); };
 });
+
 
 
 
