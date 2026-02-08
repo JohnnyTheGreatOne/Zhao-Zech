@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { date: "2026-01-29T20:00:00", title: "Rezital im Schloss Goldegg", location: "Schloss Goldegg", program: "Mozart, Zeitgenossen und zeitgenössische Musik" },
         { date: "2026-03-14T18:00:00", title: "Rezital in Inzell", location: "Musikschule Inzell", program: "Wiener Klassik bis zeitgenössische Musik" },
         { date: "2026-04-12T18:00:00", title: "Live Music Now Benefizkonzert in Salzburg", location: "Universität Mozarteum, Solitär", program: "Klassik" },
-        { date: "2026-06-20", title: "Straußiade Altenmarkt", location: "Kulturraum Pötzelberg, Altenmarkt im Pongau", program: "Wiener Klassik und Romantik" },
+        { date: "2026-06-20", title: "Straußiade Altenmarkt im Pongau", location: "Kulturraum Pötzelberg", program: "Wiener Klassik und Romantik" },
         { date: "2026-08-09", title: "Salzburger Hochschulwochen", location: "Universitätsaula Salzburg", program: "Wiener Klassik und Romantik" },
         // Vergangene
         { date: "2025-11-14T19:30:00", title: "Rezital in Salzburg", location: "Musikum Salzburg Stadt, Steinway Saal", program: "Werke von Mozart, Hindemith, Reger und Strawinsky" },
@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.onkeydown = (e) => { if (e.key === 'Escape') closeLightbox(); };
 });
+
 
 
 
